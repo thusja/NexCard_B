@@ -40,7 +40,7 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: '이미지 업로드 실패' });
   }
-  const imageUrl = `https://nexcard-project.onrender.com/uploads/${req.file.filename}`;
+  const imageUrl = `https://nexcard-b.onrender.com/uploads/${req.file.filename}`;
   res.json({ imageUrl });
 });
 
