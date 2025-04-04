@@ -28,7 +28,9 @@ const storage = multer.diskStorage({
     cb(null, uploadPath);
   },
   filename: (req,file,cb) => {
-    cb(null, 'business_card.png');
+    const timestamp = Date.now();
+    const uniqueName = `business_card_${timestamp}.png`; // ✅ 동적 파일명
+    cb(null, uniqueName);
   }
 });
 
