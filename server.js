@@ -12,12 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 5500;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// 정적 업로드 폴더 제공 (이미지 접근 가능하도록 설정)
+app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 app.use(cors()); // cors 허용
 // app.use(express.static(path.join(__dirname, '../frontend'))); //정적으로 사용할때 사용 배포전
 app.use(express.json()); // json 파싱
-
-// 정적 업로드 폴더 제공 (이미지 접근 가능하도록 설정)
-app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 
 // Multer 설정 (이미지 저장 경로 설정)
 const storage = multer.diskStorage({
